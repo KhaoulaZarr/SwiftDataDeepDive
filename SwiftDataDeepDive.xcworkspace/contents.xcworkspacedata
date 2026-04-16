@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:RelationShips in SwiftData/RelationShips in SwiftData.xcodeproj">
+      location = "group:RelationShipsTutorial/RelationShipsTutorial.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:MyToDos/MyToDos.xcodeproj">

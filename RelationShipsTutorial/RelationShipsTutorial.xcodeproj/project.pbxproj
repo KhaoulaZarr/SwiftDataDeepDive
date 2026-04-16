@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		F396D4D42F8E649A008C5EFA /* RelationShips in SwiftData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RelationShips in SwiftData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3AE1EF02F8FBA9E00D7C22C /* RelationShipsTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelationShipsTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F396D4D62F8E649A008C5EFA /* RelationShips in SwiftData */ = {
+		F3AE1EF22F8FBA9E00D7C22C /* RelationShipsTutorial */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "RelationShips in SwiftData";
+			path = RelationShipsTutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F396D4D12F8E649A008C5EFA /* Frameworks */ = {
+		F3AE1EED2F8FBA9E00D7C22C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F396D4CB2F8E649A008C5EFA = {
+		F3AE1EE72F8FBA9E00D7C22C = {
 			isa = PBXGroup;
 			children = (
-				F396D4D62F8E649A008C5EFA /* RelationShips in SwiftData */,
-				F396D4D52F8E649A008C5EFA /* Products */,
+				F3AE1EF22F8FBA9E00D7C22C /* RelationShipsTutorial */,
+				F3AE1EF12F8FBA9E00D7C22C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F396D4D52F8E649A008C5EFA /* Products */ = {
+		F3AE1EF12F8FBA9E00D7C22C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F396D4D42F8E649A008C5EFA /* RelationShips in SwiftData.app */,
+				F3AE1EF02F8FBA9E00D7C22C /* RelationShipsTutorial.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F396D4D32F8E649A008C5EFA /* RelationShips in SwiftData */ = {
+		F3AE1EEF2F8FBA9E00D7C22C /* RelationShipsTutorial */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F396D4DF2F8E649B008C5EFA /* Build configuration list for PBXNativeTarget "RelationShips in SwiftData" */;
+			buildConfigurationList = F3AE1EFB2F8FBA9F00D7C22C /* Build configuration list for PBXNativeTarget "RelationShipsTutorial" */;
 			buildPhases = (
-				F396D4D02F8E649A008C5EFA /* Sources */,
-				F396D4D12F8E649A008C5EFA /* Frameworks */,
-				F396D4D22F8E649A008C5EFA /* Resources */,
+				F3AE1EEC2F8FBA9E00D7C22C /* Sources */,
+				F3AE1EED2F8FBA9E00D7C22C /* Frameworks */,
+				F3AE1EEE2F8FBA9E00D7C22C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F396D4D62F8E649A008C5EFA /* RelationShips in SwiftData */,
+				F3AE1EF22F8FBA9E00D7C22C /* RelationShipsTutorial */,
 			);
-			name = "RelationShips in SwiftData";
+			name = RelationShipsTutorial;
 			packageProductDependencies = (
 			);
-			productName = "RelationShips in SwiftData";
-			productReference = F396D4D42F8E649A008C5EFA /* RelationShips in SwiftData.app */;
+			productName = RelationShipsTutorial;
+			productReference = F3AE1EF02F8FBA9E00D7C22C /* RelationShipsTutorial.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F396D4CC2F8E649A008C5EFA /* Project object */ = {
+		F3AE1EE82F8FBA9E00D7C22C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					F396D4D32F8E649A008C5EFA = {
+					F3AE1EEF2F8FBA9E00D7C22C = {
 						CreatedOnToolsVersion = 26.0;
 					};
 				};
 			};
-			buildConfigurationList = F396D4CF2F8E649A008C5EFA /* Build configuration list for PBXProject "RelationShips in SwiftData" */;
+			buildConfigurationList = F3AE1EEB2F8FBA9E00D7C22C /* Build configuration list for PBXProject "RelationShipsTutorial" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = F396D4CB2F8E649A008C5EFA;
+			mainGroup = F3AE1EE72F8FBA9E00D7C22C;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = F396D4D52F8E649A008C5EFA /* Products */;
+			productRefGroup = F3AE1EF12F8FBA9E00D7C22C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F396D4D32F8E649A008C5EFA /* RelationShips in SwiftData */,
+				F3AE1EEF2F8FBA9E00D7C22C /* RelationShipsTutorial */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F396D4D22F8E649A008C5EFA /* Resources */ = {
+		F3AE1EEE2F8FBA9E00D7C22C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F396D4D02F8E649A008C5EFA /* Sources */ = {
+		F3AE1EEC2F8FBA9E00D7C22C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F396D4DD2F8E649B008C5EFA /* Debug */ = {
+		F3AE1EF92F8FBA9F00D7C22C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		F396D4DE2F8E649B008C5EFA /* Release */ = {
+		F3AE1EFA2F8FBA9F00D7C22C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,7 +244,7 @@
 			};
 			name = Release;
 		};
-		F396D4E02F8E649B008C5EFA /* Debug */ = {
+		F3AE1EFC2F8FBA9F00D7C22C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -263,7 +263,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.RelationShips-in-SwiftData";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RelationShipsTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -275,7 +275,7 @@
 			};
 			name = Debug;
 		};
-		F396D4E12F8E649B008C5EFA /* Release */ = {
+		F3AE1EFD2F8FBA9F00D7C22C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -294,7 +294,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.RelationShips-in-SwiftData";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.RelationShipsTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -309,25 +309,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F396D4CF2F8E649A008C5EFA /* Build configuration list for PBXProject "RelationShips in SwiftData" */ = {
+		F3AE1EEB2F8FBA9E00D7C22C /* Build configuration list for PBXProject "RelationShipsTutorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F396D4DD2F8E649B008C5EFA /* Debug */,
-				F396D4DE2F8E649B008C5EFA /* Release */,
+				F3AE1EF92F8FBA9F00D7C22C /* Debug */,
+				F3AE1EFA2F8FBA9F00D7C22C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F396D4DF2F8E649B008C5EFA /* Build configuration list for PBXNativeTarget "RelationShips in SwiftData" */ = {
+		F3AE1EFB2F8FBA9F00D7C22C /* Build configuration list for PBXNativeTarget "RelationShipsTutorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F396D4E02F8E649B008C5EFA /* Debug */,
-				F396D4E12F8E649B008C5EFA /* Release */,
+				F3AE1EFC2F8FBA9F00D7C22C /* Debug */,
+				F3AE1EFD2F8FBA9F00D7C22C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F396D4CC2F8E649A008C5EFA /* Project object */;
+	rootObject = F3AE1EE82F8FBA9E00D7C22C /* Project object */;
 }
