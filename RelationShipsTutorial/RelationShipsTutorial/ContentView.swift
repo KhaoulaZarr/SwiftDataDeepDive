@@ -14,6 +14,20 @@ struct ContentView: View {
     @Environment(\.modelContext) var context
     @State private var todoToEdit: ToDo?
     @State private var showCreateCategory = false
+    @State private var searchQuery: String = ""
+    
+    var filteredItems: [ToDo] {
+        if searchQuery.isEmpty {
+            return items
+        }
+        let filteredItems = items.compactMap { item in
+            let titleContainQuery = item.title.range(of: searchQuery, options: .caseInsensitive) != nil
+            let categoryTitleContainsQuery = item.category?.title.range(of: searchQuery, options: .caseInsensitive) != nil
+            
+            return (titleContainQuery || categoryTitleContainsQuery) ? item : nil
+        }
+        return filteredItems
+    }
     
     var body: some View {
         NavigationStack {
@@ -22,7 +36,7 @@ struct ContentView: View {
                     ContentUnavailableView("To Do List Empty", systemImage: "checklist")
                 } else {
                     List {
-                        ForEach(items) { item in
+                        ForEach(filteredItems) { item in
                             HStack {
                                 VStack(alignment: .leading) {
                                     if item.isCritical {
@@ -87,6 +101,13 @@ struct ContentView: View {
                 }
             }
                     .navigationTitle("My Do List")
+                    .searchable(text: $searchQuery ,placement: .navigationBarDrawer,
+                                prompt: "Search for a to do or a category")
+                    .overlay {
+                        if filteredItems.isEmpty {
+                            ContentUnavailableView.search
+                        }
+                    }
                 .toolbar {
                     ToolbarItemGroup(placement: .primaryAction) {
                         Button("New Category") {
