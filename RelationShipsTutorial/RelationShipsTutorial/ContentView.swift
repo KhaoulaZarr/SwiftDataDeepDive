@@ -8,6 +8,25 @@
 import SwiftUI
 import SwiftData
 
+enum SortOption: String, CaseIterable {
+    case title
+    case date
+    case category
+}
+
+extension SortOption {
+    var systemImage: String {
+        switch self {
+        case .title:
+            "textformat.size.larger"
+        case .date:
+            "calendar"
+        case .category:
+            "folder"
+        }
+    }
+}
+
 struct ContentView: View {
     @State private var showCreate = false
     @Query private var items : [ToDo]
@@ -15,10 +34,11 @@ struct ContentView: View {
     @State private var todoToEdit: ToDo?
     @State private var showCreateCategory = false
     @State private var searchQuery: String = ""
+    @State private var selectedSortOption = SortOption.allCases.first!
     
     var filteredItems: [ToDo] {
         if searchQuery.isEmpty {
-            return items
+            return items.sort(on: selectedSortOption)
         }
         let filteredItems = items.compactMap { item in
             let titleContainQuery = item.title.range(of: searchQuery, options: .caseInsensitive) != nil
@@ -26,7 +46,7 @@ struct ContentView: View {
             
             return (titleContainQuery || categoryTitleContainsQuery) ? item : nil
         }
-        return filteredItems
+        return filteredItems.sort(on: selectedSortOption)
     }
     
     var body: some View {
@@ -101,6 +121,7 @@ struct ContentView: View {
                 }
             }
                     .navigationTitle("My Do List")
+                    .animation(.easeIn, value: filteredItems)
                     .searchable(text: $searchQuery ,placement: .navigationBarDrawer,
                                 prompt: "Search for a to do or a category")
                     .overlay {
@@ -109,11 +130,29 @@ struct ContentView: View {
                         }
                     }
                 .toolbar {
-                    ToolbarItemGroup(placement: .primaryAction) {
+                    ToolbarItemGroup(placement: .topBarLeading) {
                         Button("New Category") {
                             showCreateCategory.toggle()
                         }
+                    }
+                    
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        Menu {
+                            Picker("", selection: $selectedSortOption) {
+                                ForEach(SortOption.allCases, id: \.rawValue) { option in
+                                    Label(option.rawValue.capitalized, systemImage: option.systemImage)
+                                        .tag(option)
                                 }
+                            }
+                            .labelsHidden()
+                            
+                            
+                        } label: {
+                            Image(systemName: "ellipsis")
+                                .symbolVariant(.circle)
+                        }
+
+                    }
                                     
                 }
             
@@ -164,4 +203,23 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+private extension [ToDo] {
+    func sort(on option: SortOption) -> [ToDo] {
+        switch option {
+        case .title:
+            self.sorted(by: {$0.title < $1.title})
+        case .date:
+            self.sorted(by: {$0.timestamp < $1.timestamp})
+        case .category:
+            self.sorted(by: {
+                guard let firstItemTitle = $0.category?.title,
+                      let secondItemTitle = $1.category?.title
+                else { return false }
+                return firstItemTitle < secondItemTitle
+                
+            })
+        }
+    }
 }
