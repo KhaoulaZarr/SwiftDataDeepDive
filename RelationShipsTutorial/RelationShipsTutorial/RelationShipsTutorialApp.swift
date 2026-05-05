@@ -10,10 +10,12 @@ import SwiftData
 
 @main
 struct RelationShipsTutorialApp: App {
+    @AppStorage("isFirstTimeLaunch") private var isFirstTimeLaunch:Bool = true
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(for: ToDo.self)
+                .modelContainer(ItemsContainer.create(shouldCreateDefaults: &isFirstTimeLaunch))
         }
     }
 }

@@ -21,6 +21,16 @@ class Category {
     }
 }
 
+extension Category {
+    static var defaults:[Category] {
+        [
+            .init(title: "🌷Study"),
+            .init(title: "🌾 Routine"),
+            .init(title: "😸 Family")
+        ]
+    }
+}
+
 struct CreateCategoryView: View {
    @State private var title = ""
    @Environment(\.modelContext) var modalContext
