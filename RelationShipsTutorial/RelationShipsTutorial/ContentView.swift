@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import SwiftUIImageViewer
 
 enum SortOption: String, CaseIterable {
     case title
@@ -35,6 +36,7 @@ struct ContentView: View {
     @State private var showCreateCategory = false
     @State private var searchQuery: String = ""
     @State private var selectedSortOption = SortOption.allCases.first!
+    @State private var isImageViewerPresented = false
     
     var filteredItems: [ToDo] {
         if searchQuery.isEmpty {
@@ -57,45 +59,64 @@ struct ContentView: View {
                 } else {
                     List {
                         ForEach(filteredItems) { item in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    if item.isCritical {
-                                        Image(systemName: "exclamationmark.3")
-                                            .symbolVariant(.fill)
-                                            .foregroundColor(.red)
+                            VStack {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        if item.isCritical {
+                                            Image(systemName: "exclamationmark.3")
+                                                .symbolVariant(.fill)
+                                                .foregroundColor(.red)
+                                                .font(.largeTitle)
+                                                .bold()
+                                            
+                                        }
+                                        Text(item.title)
+                                            .bold()
                                             .font(.largeTitle)
-                                            .bold()
+                                        Text("\(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .shortened))")
+                                            .font(.callout)
                                         
+                                        if let category = item.category {
+                                            Text(category.title)
+                                                .foregroundStyle(Color.blue)
+                                                .bold()
+                                                .padding(.horizontal)
+                                                .padding(.vertical, 8)
+                                                .background(Color.blue.opacity(0.1), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                        }
                                     }
-                                    Text(item.title)
-                                        .bold()
-                                        .font(.largeTitle)
-                                    Text("\(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .shortened))")
-                                        .font(.callout)
                                     
-                                    if let category = item.category {
-                                        Text(category.title)
-                                            .foregroundStyle(Color.blue)
-                                            .bold()
-                                            .padding(.horizontal)
-                                            .padding(.vertical, 8)
-                                            .background(Color.blue.opacity(0.1), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                    Spacer()
+                                    
+                                    Button {
+                                        item.isCompleted.toggle()
+                                    } label: {
+                                        Image(systemName: "checkmark")
+                                            .symbolVariant(.circle.fill)
+                                            .foregroundStyle(item.isCompleted ? .green : .gray)
+                                            .font(.largeTitle)
                                     }
+                                    .buttonStyle(.plain)
+                                    
                                 }
                                 
-                                Spacer()
-                                
-                                Button {
-                                    item.isCompleted.toggle()
-                                } label: {
-                                    Image(systemName: "checkmark")
-                                        .symbolVariant(.circle.fill)
-                                        .foregroundStyle(item.isCompleted ? .green : .gray)
-                                        .font(.largeTitle)
+                                if let selectedPhotoData = item.image, let uiImage = UIImage(data: selectedPhotoData) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(maxWidth: .infinity, maxHeight: 120)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                        .onTapGesture {
+                                            isImageViewerPresented = true
+                                        }
+                                        .fullScreenCover(isPresented: $isImageViewerPresented) {
+                                            SwiftUIImageViewer(image: Image(uiImage: uiImage))
+                                                .overlay(alignment: .topTrailing) {
+                                                    closeButton
+                                                }
+                                        }
                                 }
-                                .buttonStyle(.plain)
-                                
-                            }
+                            }                       
                             .swipeActions {
                                 Button(role: .destructive) {
                                     withAnimation {
@@ -198,6 +219,20 @@ struct ContentView: View {
                             })
 
         }
+    }
+    
+private var closeButton: some View {
+        Button {
+            isImageViewerPresented = false
+        } label: {
+           Image(systemName: "xmark")
+                .font(.headline)
+        }
+        .buttonStyle(.bordered)
+        .clipShape(Circle())
+        .tint(.blue)
+        .padding()
+
     }
 }
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import PhotosUI
 
 struct CreateToDoView: View {
     @Environment(\.dismiss) var dismiss
@@ -14,6 +15,8 @@ struct CreateToDoView: View {
     @Environment(\.modelContext) var context
     @Query private var categories:[Category]
     @State var  selectedCategory: Category?
+    
+    @State var selectedPhoto: PhotosPickerItem?
     
     var body: some View {
         List {
@@ -46,6 +49,34 @@ struct CreateToDoView: View {
                 
                 
             }
+            
+            Section {
+                if let imageData = item.image , let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity, maxHeight: 300)
+                }
+                PhotosPicker(selection: $selectedPhoto,
+                             matching: .images,
+                             photoLibrary: .shared()
+                ) {
+                   Label("Add Photos", systemImage: "photo")
+                }
+                
+                if item.image != nil {
+                    Button(role: .destructive) {
+                        withAnimation {
+                            selectedPhoto = nil
+                            item.image = nil
+                        }
+                    }label: {
+                        Label("Remove Image", systemImage: "xmark")
+                            .foregroundStyle(.red)
+                    }
+                }
+            }
+           
             Section {
                 Button("Create") {
                     save()
@@ -70,6 +101,12 @@ struct CreateToDoView: View {
                 .disabled(item.title.isEmpty)
             }
         }
+        .task(id: selectedPhoto) {
+            if let data = try? await selectedPhoto?.loadTransferable(type: Data.self) {
+                item.image = data
+            }
+        }
+        
     }
 }
 

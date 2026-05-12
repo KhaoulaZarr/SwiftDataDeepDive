@@ -15,6 +15,9 @@ final class ToDo {
     var isCritical: Bool
     var isCompleted: Bool
     
+    @Attribute(.externalStorage)
+    var image: Data?
+    
     @Relationship(deleteRule: .nullify, inverse: \Category.items)
     var category: Category?
     

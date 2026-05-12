@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F3227B152FB35BC200A9D687 /* SwiftUIImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = F3227B142FB35BC200A9D687 /* SwiftUIImageViewer */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F3AE1EF02F8FBA9E00D7C22C /* RelationShipsTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelationShipsTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3227B152FB35BC200A9D687 /* SwiftUIImageViewer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = RelationShipsTutorial;
 			packageProductDependencies = (
+				F3227B142FB35BC200A9D687 /* SwiftUIImageViewer */,
 			);
 			productName = RelationShipsTutorial;
 			productReference = F3AE1EF02F8FBA9E00D7C22C /* RelationShipsTutorial.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = F3AE1EE72F8FBA9E00D7C22C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F3227B132FB35BC200A9D687 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F3AE1EF12F8FBA9E00D7C22C /* Products */;
 			projectDirPath = "";
@@ -328,6 +337,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3227B132FB35BC200A9D687 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fuzzzlove/swiftui-image-viewer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3227B142FB35BC200A9D687 /* SwiftUIImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3227B132FB35BC200A9D687 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = SwiftUIImageViewer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3AE1EE82F8FBA9E00D7C22C /* Project object */;
 }
