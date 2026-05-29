@@ -1,0 +1,23 @@
+[
+    {
+       "title": "Gym Workout time 🏋🏻",
+       "isCritical": true,
+       "isCompleted": false,
+       "imageName": "holiday"
+    },
+
+    {
+       "title": "Go & Get Jacket Suit",
+       "isCritical": false,
+       "isCompleted": true
+    },
+
+    {
+       "title": "Go Visit family",
+       "isCritical": true,
+       "isCompleted": false,
+       "category": {
+           "title": "😸 Family"
+       }
+    }
+]

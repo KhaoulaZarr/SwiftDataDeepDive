@@ -7,20 +7,16 @@
 
 import Foundation
 
-struct CategoryResponse: Decodable {
-    let title: String
-}
-
-struct CategoriesJSONDecoder {
+struct DefaultsJSON {
     
-    static func decode(from fileName: String) -> [CategoryResponse] {
+    static func decode<T: Codable>(from fileName: String, type: T.Type) ->T? {
+        
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
               let data = try? Data(contentsOf: url),
-              let categories = try? JSONDecoder().decode([CategoryResponse].self, from: data) else {
-            return []
+              let result = try? JSONDecoder().decode(T.self, from: data)
+        else {
+            return nil
         }
-        
-        return categories
-                                   
+        return result
     }
 }
