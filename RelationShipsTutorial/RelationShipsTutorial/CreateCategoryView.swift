@@ -100,8 +100,9 @@ struct CreateCategoryView: View {
 }
 
 #Preview {
-    NavigationStack {
-        CreateCategoryView()
+    SwiftDataViewer(preview: PreviewContainer([ToDo.self])) {
+        NavigationStack {
+            CreateCategoryView()
+        }
     }
-    
 }

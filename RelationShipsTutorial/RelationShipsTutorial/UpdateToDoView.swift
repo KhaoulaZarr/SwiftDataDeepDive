@@ -93,6 +93,11 @@ struct UpdateToDoView: View {
 }
 
 #Preview {
-    UpdateToDoView(item: ToDo())
-        .modelContainer(for: ToDo.self)
+    SwiftDataViewer(preview: PreviewContainer([ToDo.self])) {
+        NavigationStack {
+            UpdateToDoView(item: ToDo.dummy)
+        }
+    }
+
+    
 }

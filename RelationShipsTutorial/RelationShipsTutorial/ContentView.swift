@@ -236,8 +236,16 @@ private var closeButton: some View {
     }
 }
 
-#Preview {
-    ContentView()
+#Preview("To Do Screen Empty") {
+    SwiftDataViewer(preview: PreviewContainer([ToDo.self])) {
+        ContentView()
+    }
+}
+
+#Preview("To Do Screen") {
+    SwiftDataViewer(preview: PreviewContainer([ToDo.self]), items: DefaultsJSON.decode(from: "DefaultToDos", type: [ToDo].self)) {
+        ContentView()
+    }
 }
 
 private extension [ToDo] {

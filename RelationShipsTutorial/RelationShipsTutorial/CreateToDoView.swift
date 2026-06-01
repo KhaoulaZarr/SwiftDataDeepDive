@@ -120,6 +120,7 @@ private extension CreateToDoView {
 }
 
 #Preview {
-    CreateToDoView()
-        .modelContainer(for: ToDo.self)
+    SwiftDataViewer(preview: PreviewContainer([ToDo.self])) {
+        CreateToDoView()
+    }
 }
