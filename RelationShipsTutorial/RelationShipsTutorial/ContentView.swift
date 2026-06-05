@@ -62,18 +62,28 @@ struct ContentView: View {
                             VStack {
                                 HStack {
                                     VStack(alignment: .leading) {
-                                        if item.isCritical {
-                                            Image(systemName: "exclamationmark.3")
-                                                .symbolVariant(.fill)
-                                                .foregroundColor(.red)
-                                                .font(.largeTitle)
-                                                .bold()
-                                            
+                                        HStack {
+                                            if item.isFlagged {
+                                                Image(systemName: "flag")
+                                                    .symbolVariant(.fill)
+                                                    .foregroundStyle(.orange)
+                                                    .font(.largeTitle)
+                                                    .bold()
+                                            }
+                                            if item.isCritical {
+                                                Image(systemName: "exclamationmark.3")
+                                                    .symbolVariant(.fill)
+                                                    .foregroundColor(.red)
+                                                    .font(.largeTitle)
+                                                    .bold()
+                                                
+                                            }
                                         }
+                                        
                                         Text(item.title)
                                             .bold()
                                             .font(.largeTitle)
-                                        Text("\(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .shortened))")
+                                        Text("\(item.dueDate, format: Date.FormatStyle(date: .numeric, time: .shortened))")
                                             .font(.callout)
                                         
                                         if let category = item.category {
@@ -131,6 +141,15 @@ struct ContentView: View {
                                     todoToEdit = item
                                 } label: {
                                     Label("Edit", systemImage: "pencil")
+                                    
+                                }
+                                .tint(.yellow)
+                                
+                                Button {
+                                    item.isFlagged.toggle()
+                                } label: {
+                                    Label(item.isFlagged ? "Unflag": "Flag", systemImage: item.isFlagged ? "flag.slash" : "flag")
+                                        .symbolVariant(.fill)
                                     
                                 }
                                 .tint(.orange)
@@ -254,7 +273,7 @@ private extension [ToDo] {
         case .title:
             self.sorted(by: {$0.title < $1.title})
         case .date:
-            self.sorted(by: {$0.timestamp < $1.timestamp})
+            self.sorted(by: {$0.dueDate < $1.dueDate})
         case .category:
             self.sorted(by: {
                 guard let firstItemTitle = $0.category?.title,

@@ -23,7 +23,7 @@ struct UpdateToDoView: View {
                 TextField("Name", text: $item.title)
             }
             Section("General") {
-                DatePicker("Choose a date ?", selection: $item.timestamp)
+                DatePicker("Choose a date ?", selection: $item.dueDate)
                 Toggle("Important?", isOn: $item.isCritical)
             }
             Section("Select A Category") {

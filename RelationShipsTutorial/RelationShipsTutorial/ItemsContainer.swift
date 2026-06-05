@@ -14,7 +14,11 @@ actor ItemsContainer {
     static func create(shouldCreateDefaults: inout Bool) -> ModelContainer {
         let scheme = Schema([ToDo.self])
         let configuration = ModelConfiguration()
-        let container = try! ModelContainer(for: scheme, configurations: configuration)
+        let container = try! ModelContainer(
+            for: scheme,
+            migrationPlan: ToDosMigrationPlan.self,
+            configurations: configuration
+        )
         if shouldCreateDefaults {
             shouldCreateDefaults = false
             let categories = DefaultsJSON.decode(from: "CategoryDefaults", type: [Category].self)
