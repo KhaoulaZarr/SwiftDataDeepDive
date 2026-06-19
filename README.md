@@ -1,5 +1,5 @@
 # SwiftDataDeepDive
-A complete SwiftUI and SwiftData learning project that progressively builds a real-world To-Do application while exploring the most important SwiftData concepts.
+A comprehensive SwiftUI and SwiftData learning repository that progressively builds real-world applications while exploring the most important SwiftData concepts, from beginner fundamentals to advanced data management techniques.
 
 # Projects 
 # MyToDos (To-Do List App in SwiftUI )
