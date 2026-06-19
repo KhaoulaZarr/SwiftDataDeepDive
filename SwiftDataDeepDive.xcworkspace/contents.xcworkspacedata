@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SwiftDataBackgroundThreads/SwiftDataBackgroundThreads.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CachingAPIResponseSwiftData/CachingAPIResponseSwiftData.xcodeproj">
    </FileRef>
    <FileRef
